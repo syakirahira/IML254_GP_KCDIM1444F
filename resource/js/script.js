@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Send whatsapp for Book table
 function sendWhatsAppMessage() {
   var phone = document.getElementById("whatsapp-phone").value;
   var name = document.getElementById("name").value;
