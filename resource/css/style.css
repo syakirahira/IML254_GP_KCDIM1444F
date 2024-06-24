@@ -1342,7 +1342,7 @@ button[type="submit"]:hover {
 }
 
 
-/* Style Contact Me page */
+/* Style Contact Us page */
 .contact {
   position: relative;
   min-height: 120vh;
@@ -1482,19 +1482,29 @@ button[type="submit"]:hover {
   color: white;
   }
   
-  @media  (max-width: 991px) {
-  .contact{
-  padding: 50px;
-  }
-  .containerCM {
-  flex-direction: column;
-  }
-  .containerCM .contactInfo {
-  margin-bottom: 40px;
-  }
-  .containerCM .contactInfo, .contactForm {
-  width: 100%;
-  }
+  @media (max-width: 991px) {
+    .contact {
+      padding: 50px;
+    }
+  
+    .containerCM {
+      flex-direction: column;
+    }
+  
+    .containerCM .contactInfo {
+      margin-bottom: 40px;
+    }
+  
+    .containerCM .contactInfo,
+    .contactForm {
+      width: 100%;
+    }
+  
+    /* Adjust the map size for smaller screens */
+    .containerCM .contactInfo .box .text p iframe {
+      width: 100%;
+      height: 200px; 
+    }
   }
   
 
