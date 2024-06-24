@@ -110,6 +110,8 @@
         <form action="https://api.web3forms.com/submit" method="POST">
           <h2>Send Message</h2>
           <input type="hidden" name="access_key" value="c925fe7b-65a0-4612-a314-79ed2117b02a">
+          <!-- Honeypot field (hidden) -->
+          <input type="text" name="honeypot" style="display:none;">
           <div class="inputBox">
             <input type="text" name="name" required="required">
             <span>Full Name</span>
