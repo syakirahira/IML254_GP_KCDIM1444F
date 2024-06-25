@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function sendWhatsAppMessage() {
+  // Retrieve form values
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
@@ -75,14 +76,14 @@ function sendWhatsAppMessage() {
   const message = document.getElementById("message").value;
 
   // Construct the WhatsApp message
-  let whatsappMessage = "Reservation Details:\n";
-  whatsappMessage += "Name: " + name + "\n";
-  whatsappMessage += "Email: " + email + "\n";
-  whatsappMessage += "Phone: " + phone + "\n";
-  whatsappMessage += "Date: " + date + "\n";
-  whatsappMessage += "Time: " + time + "\n";
-  whatsappMessage += "Number of Guests: " + guests + "\n";
-  whatsappMessage += "Special Requests: " + message;
+  const whatsappMessage = `Reservation Details:
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Date: ${date}
+Time: ${time}
+Number of Guests: ${guests}
+Special Requests: ${message}`;
 
   // Encode the message
   const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -93,10 +94,11 @@ function sendWhatsAppMessage() {
   // Log the link to the console for debugging
   console.log(whatsappLink);
 
-  // Display the link for the user to click
+  // Alert the user and open the WhatsApp link
   alert("Please click OK to open WhatsApp and send the message.");
   window.open(whatsappLink, "_blank");
 }
+
 
 
 
