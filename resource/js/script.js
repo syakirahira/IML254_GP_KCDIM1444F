@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Send whatsapp for Book table
+// Send WhatsApp message for booking table
 function sendWhatsAppMessage() {
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
@@ -86,6 +86,9 @@ function sendWhatsAppMessage() {
 
   // Create the WhatsApp chat link
   var whatsappLink = "https://wa.me/60108706008" + "?text=" + encodeURIComponent(whatsappMessage);
+
+  // Log the link for debugging
+  console.log("Generated WhatsApp Link:", whatsappLink);
 
   // Display the link for the user to click
   alert("Please click OK to open WhatsApp and send the message.");
