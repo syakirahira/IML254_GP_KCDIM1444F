@@ -86,7 +86,7 @@ function sendWhatsAppMessage() {
   whatsappMessage += "Special Requests: " + message;
 
   // Create the WhatsApp chat link
-  var whatsappLink = "https://wa.me/60108706008" + "?text=" + encodeURIComponent(whatsappMessage);
+  var whatsappLink = https://api.whatsapp.com/send/?phone=60108706008" + "?text=" + encodeURIComponent(whatsappMessage);
 
   // Display the link for the user to click
   alert("Please click OK to open WhatsApp and send the message.");
