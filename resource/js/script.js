@@ -92,7 +92,11 @@ function sendWhatsAppMessage() {
 
   // Display the link for the user to click
   alert("Please click OK to open WhatsApp and send the message.");
-  window.open(whatsappLink, "_blank");
+  
+  // Delay opening the link
+  setTimeout(function() {
+    window.open(whatsappLink, "_blank");
+  }, 1000); // 1 second delay
 }
 
 
