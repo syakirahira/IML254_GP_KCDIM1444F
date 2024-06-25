@@ -1,103 +1,90 @@
-// scroll back to top
+// Scroll back to top
 const toTop = document.querySelector(".to-top");
-window.addEventListener("scroll",()=> {
-if (window.pageYOffset > 100) {
-toTop.classList.add("active");
-} else {
-toTop.classList.remove("active");
-}
-})
+window.addEventListener("scroll", () => {
+  toTop.classList.toggle("active", window.pageYOffset > 100);
+});
 
-// sidebar open close js code
-let navLinks = document.querySelector(".nav-links");
-let menuOpenBtn = document.querySelector(".navbar .bx-menu");
-let menuCloseBtn = document.querySelector(".nav-links .bx-x");
-menuOpenBtn.onclick = function () {
+// Sidebar open/close
+const navLinks = document.querySelector(".nav-links");
+const menuOpenBtn = document.querySelector(".navbar .bx-menu");
+const menuCloseBtn = document.querySelector(".nav-links .bx-x");
+menuOpenBtn.addEventListener("click", () => {
   navLinks.style.left = "0";
-}
-menuCloseBtn.onclick = function () {
+});
+menuCloseBtn.addEventListener("click", () => {
   navLinks.style.left = "-100%";
-}
+});
 
-// sidebar submenu open close js code
-let cuisinesArrow = document.querySelector(".cuisines-arrow");
-cuisinesArrow.onclick = function () {
-  navLinks.classList.toggle("show1");
-}
-let moreMArrow = document.querySelector(".moreM-arrow");
-moreMArrow.onclick = function () {
-  navLinks.classList.toggle("show2");
-}
-let moreIArrow = document.querySelector(".moreI-arrow");
-moreIArrow.onclick = function () {
-  navLinks.classList.toggle("show3");
-}
-let moreCArrow = document.querySelector(".moreC-arrow");
-moreCArrow.onclick = function () {
-  navLinks.classList.toggle("show4");
-}
+// Sidebar submenu open/close
+document.querySelectorAll(".submenu-arrow").forEach(arrow => {
+  arrow.addEventListener("click", () => {
+    navLinks.classList.toggle("show", arrow.classList.contains("show"));
+  });
+});
 
-// home
-document.addEventListener('DOMContentLoaded', function() {
+// Carousel
+document.addEventListener("DOMContentLoaded", function() {
   const carousel = document.querySelector('.feedback-carousel');
   const prevButton = document.getElementById('prev');
   const nextButton = document.getElementById('next');
 
   nextButton.addEventListener('click', () => {
-      carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    carousel.scrollBy({ left: 300, behavior: 'smooth' });
   });
 
   prevButton.addEventListener('click', () => {
-      carousel.scrollBy({ left: -300, behavior: 'smooth' });
+    carousel.scrollBy({ left: -300, behavior: 'smooth' });
   });
 });
-
 
 // FAQ
-document.addEventListener('DOMContentLoaded', function() {
-  const faqItems = document.querySelectorAll('.faq-item');
+document.addEventListener("DOMContentLoaded", function() {
+  const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach(item => {
-      item.addEventListener('click', () => {
-          item.classList.toggle('open');
-      });
+    item.addEventListener("click", () => {
+      item.classList.toggle("open");
+    });
   });
 });
 
-// Send whatsapp for Book table
+// Send WhatsApp message
 function sendWhatsAppMessage() {
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var phone = document.getElementById("phone").value;
-  var date = document.getElementById("date").value;
-  var time = document.getElementById("time").value;
-  var guests = document.getElementById("guests").value;
-  var message = document.getElementById("message").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const guests = document.getElementById("guests").value;
+  const message = document.getElementById("message").value;
 
-  // Construct the WhatsApp message
-  var whatsappMessage = "Reservation Details:\n";
-  whatsappMessage += "Name: " + name + "\n";
-  whatsappMessage += "Email: " + email + "\n";
-  whatsappMessage += "Phone: " + phone + "\n";
-  whatsappMessage += "Date: " + date + "\n";
-  whatsappMessage += "Time: " + time + "\n";
-  whatsappMessage += "Number of Guests: " + guests + "\n";
-  whatsappMessage += "Special Requests: " + message;
+  // Validate input
+  if (!name || !email || !phone || !date || !time || !guests) {
+    alert("Please fill in all required fields.");
+    return;
+  }
 
-  // Create the WhatsApp chat link
-  var whatsappLink = "https://wa.me/60108706008?" + "text=" + encodeURIComponent(whatsappMessage);
+  // Construct WhatsApp message
+  const whatsappMessage = `Reservation Details:
+    Name: ${name}
+    Email: ${email}
+    Phone: ${phone}
+    Date: ${date}
+    Time: ${time}
+    Number of Guests: ${guests}
+    Special Requests: ${message}`;
+
+  // Create WhatsApp chat link
+  const whatsappLink = `https://wa.me/60108706008?text=${encodeURIComponent(whatsappMessage)}`;
 
   // Log the link for debugging
   console.log("Generated WhatsApp Link:", whatsappLink);
 
   // Display the link for the user to click
   alert("Please click OK to open WhatsApp and send the message.");
-  
+
   // Delay opening the link
-  setTimeout(function() {
+  setTimeout(() => {
     window.open(whatsappLink, "_blank");
-  }, 4000); 
+  }, 4000);
 }
-
-
-
