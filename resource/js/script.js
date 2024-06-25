@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// Send WhatsApp message
 function sendWhatsAppMessage() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -74,8 +73,11 @@ function sendWhatsAppMessage() {
     Number of Guests: ${guests}
     Special Requests: ${message}`;
 
-  // Create WhatsApp chat link
-  const whatsappLink = `https://api.whatsapp.com/send/?phone=60108706008&text=${encodeURIComponent(whatsappMessage)}`;
+  // Encode the message for the URL
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+
+  // Construct the WhatsApp chat link
+  const whatsappLink = `https://api.whatsapp.com/send/?phone=60108706008&text=${encodedMessage}`;
 
   // Log the link for debugging
   console.log("Generated WhatsApp Link:", whatsappLink);
@@ -83,8 +85,12 @@ function sendWhatsAppMessage() {
   // Display the link for the user to click
   alert("Please click OK to open WhatsApp and send the message.");
 
+  // Open the link
+  window.open(whatsappLink, "_blank"); 
+  
   // Delay opening the link
   setTimeout(() => {
     window.open(whatsappLink, "_blank");
   }, 4000);
 }
+
