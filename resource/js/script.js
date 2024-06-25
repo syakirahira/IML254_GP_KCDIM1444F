@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Send WhatsApp for Book Table
 function sendWhatsAppMessage() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -85,8 +84,11 @@ function sendWhatsAppMessage() {
   whatsappMessage += "Number of Guests: " + guests + "\n";
   whatsappMessage += "Special Requests: " + message;
 
+  // Encode the message
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+
   // Create the WhatsApp chat link
-  const whatsappLink = "https://api.whatsapp.com/send?phone=60108706008&text=" + encodeURIComponent(whatsappMessage);
+  const whatsappLink = `https://api.whatsapp.com/send?phone=60108706008&text=${encodedMessage}`;
 
   // Log the link to the console for debugging
   console.log(whatsappLink);
@@ -95,6 +97,7 @@ function sendWhatsAppMessage() {
   alert("Please click OK to open WhatsApp and send the message.");
   window.open(whatsappLink, "_blank");
 }
+
 
 
 
