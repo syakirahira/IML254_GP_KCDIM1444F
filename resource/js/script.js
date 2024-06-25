@@ -65,18 +65,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Send whatsapp for Book table
+// Send WhatsApp for Book Table
 function sendWhatsAppMessage() {
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var phone = document.getElementById("phone").value;
-  var date = document.getElementById("date").value;
-  var time = document.getElementById("time").value;
-  var guests = document.getElementById("guests").value;
-  var message = document.getElementById("message").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const guests = document.getElementById("guests").value;
+  const message = document.getElementById("message").value;
 
   // Construct the WhatsApp message
-  var whatsappMessage = "Reservation Details:\n";
+  let whatsappMessage = "Reservation Details:\n";
   whatsappMessage += "Name: " + name + "\n";
   whatsappMessage += "Email: " + email + "\n";
   whatsappMessage += "Phone: " + phone + "\n";
@@ -86,10 +86,11 @@ function sendWhatsAppMessage() {
   whatsappMessage += "Special Requests: " + message;
 
   // Create the WhatsApp chat link
-  var whatsappLink = "https://api.whatsapp.com/send/?phone=60108706008" + "&text=" + encodeURIComponent(whatsappMessage);
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=60108706008&text=" + encodeURIComponent(whatsappMessage);
 
   // Display the link for the user to click
   alert("Please click OK to open WhatsApp and send the message.");
+  console.log(whatsappLink);
   window.open(whatsappLink, "_blank");
 }
 
