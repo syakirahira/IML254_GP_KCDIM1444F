@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Send WhatsApp message for booking table
+// Send whatsapp for Book table
 function sendWhatsAppMessage() {
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
@@ -85,7 +85,7 @@ function sendWhatsAppMessage() {
   whatsappMessage += "Special Requests: " + message;
 
   // Create the WhatsApp chat link
-  var whatsappLink = "https://wa.me/60108706008" + "?text=" + encodeURIComponent(whatsappMessage);
+  var whatsappLink = "https://wa.me/60108706008?" + "text=" + encodeURIComponent(whatsappMessage);
 
   // Log the link for debugging
   console.log("Generated WhatsApp Link:", whatsappLink);
@@ -96,9 +96,8 @@ function sendWhatsAppMessage() {
   // Delay opening the link
   setTimeout(function() {
     window.open(whatsappLink, "_blank");
-  }, 1000); // 1 second delay
+  }, 4000); 
 }
-
 
 
 
