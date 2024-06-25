@@ -88,7 +88,7 @@ function sendWhatsAppMessage() {
   const encodedMessage = encodeURIComponent(whatsappMessage);
 
   // Create the WhatsApp chat link
-  const whatsappLink = `https://api.whatsapp.com/send?phone=60108706008?text=${encodedMessage}`;
+  const whatsappLink = `https://api.whatsapp.com/send?phone=60108706008&text=${encodedMessage}`;
 
   // Log the link to the console for debugging
   console.log(whatsappLink);
