@@ -87,6 +87,11 @@ function sendWhatsAppMessage() {
 
   // Open the link
   window.open(whatsappLink, "_blank"); 
+
+  // Open the link when a button is clicked
+  document.getElementById("send-whatsapp-button").addEventListener("click", function() {
+    window.open(whatsappLink, "_blank");
+  });
   
   // Delay opening the link
   setTimeout(() => {
